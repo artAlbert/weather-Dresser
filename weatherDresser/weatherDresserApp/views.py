@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .forms import CityForm
+from django.template import RequestContext
 
 import requests
 import math
 import weatherDresserApp.helpers
+
 
 
 def index(request):
