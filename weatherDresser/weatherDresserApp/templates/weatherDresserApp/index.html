@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weatherDresser</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'weatherDresserApp/styles.css' %}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="searchCity">
+        <form action="/"method="post">
+            {% csrf_token %}
+            <input id="city" type="text" name="city" placeholder="Choose a city" color="white">
+            <button>
+                <img src="https://img.icons8.com/ios/50/ffffff/search--v1.png" width="12px" height="12px"/>
+            </button>
+        </form>
+    </div>
+
+    <div class="cardContainer">
+        <div class="leftCard">
+            <img src={{weather.icon}}>
+            <h1 style="text-transform: capitalize; margin: 0px;"> {{weather.description}} </h1>
+            <h3 style="margin: 0px;"> {{weather.city}}, {{weather.country}} </h3> 
+            <h3 style="margin: 0px;"> {{time.dayOfWeek}}, {{time.month}} {{time.day}}</h3>
+            <h1 style="margin: 0px;"> {{time.time}} </h1>
+
+            <h1 style="padding-top: 10px; font-size: 70px;"> {{weather.temperature}} °C </h1>
+
+            <h4 style="margin: 0px; "> Feels like: {{weather.feel}} °C </h4>
+        </div>
+
+        <div class="middleCard">
+            <h1 style="margin-bottom: 50px;">Clothing</h1>
+            <h3> {{clothes.head}} </h3>
+            <h3> {{clothes.accessories}} </h3>
+            <h3> {{clothes.top}} </h3>
+            <h3> {{clothes.bottom}} </h3>
+            <h3> {{clothes.shoes}} </h3>
+        </div>
+
+        <div class="rightCard">
+            <h4 style="margin-bottom: 0px;"> Humidity </h4>
+            <h4 style="margin: 0px;"> {{weather.humidity}}% </h4>
+
+            <h4 style="margin-bottom: 0px;"> Air Pressure </h4>
+            <h4 style="margin: 0px;"> {{weather.pressure}} </h4>
+
+            <h4 style="margin-bottom: 0px;"> Chance of Rain </h4>
+            <h4 style="margin: 0px;"> {{weather.pop}}% </h4>
+
+            <h4 style="margin-bottom: 0px;"> Wind Speed </h4>
+            <h4 style="margin: 0px;"> {{weather.wind_speed}} km/h</h4>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,67 @@
+body {
+    background: url('/static/images/weatherBG3.jpg');
+    background-size: cover;
+
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.searchCity {
+    display: flex;
+    text-align: center;
+    border-radius: 25px;
+    justify-content: center;
+    height: 5vh;
+    padding: 60px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+}
+
+input#city {
+    border: none;
+    outline: none;
+    padding: 0.6em;
+    height: 1.5em;
+    width: 300px;
+    border-radius: 15em;
+    background-color: #45494D;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button {
+    border-radius: 50%;
+    margin: 0.5em;
+    border: none;
+    width: 3em;
+    height: 3em;
+    background-color: #45494D;
+}
+
+
+.cardContainer {
+    display: flex;
+    padding: 30px;
+    margin-right: 50px;
+}
+
+.leftCard {
+    flex: 1;
+}  
+
+.middleCard {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+.rightCard {
+    flex: 1;
+    margin-block-start: 80px;
+    justify-content: right;
+    text-align: end;
+    font-size: 20px;
+} 
