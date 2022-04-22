@@ -1,1 +1,3 @@
-"django\npython\ndjango-heroku" 
+django
+python
+django-heroku
