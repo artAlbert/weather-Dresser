@@ -14,6 +14,16 @@
 </head>
 
 <body>
+    
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    
+
     <div class="searchCity">
         <form action="/"method="post">
             {% csrf_token %}
@@ -28,17 +38,17 @@
         <div class="leftCard">
             <img src={{weather.icon}}>
             <h1 style="text-transform: capitalize; margin: 0px;"> {{weather.description}} </h1>
-            <h3 style="margin: 0px;"> {{weather.city}}, {{weather.country}} </h3> 
-            <h3 style="margin: 0px;"> {{time.dayOfWeek}}, {{time.month}} {{time.day}}</h3>
+            <h3 style="margin: 0px;"> {{weather.city}} {{weather.country}} </h3> 
+            <h3 style="margin: 0px;"> {{time.dayOfWeek}} {{time.month}} {{time.day}}</h3>
             <h1 style="margin: 0px;"> {{time.time}} </h1>
 
-            <h1 style="padding-top: 10px; font-size: 70px;"> {{weather.temperature}} °C </h1>
+            <h1 style="padding-top: 10px; font-size: 70px;"> {{weather.temperature}} </h1>
 
-            <h4 style="margin: 0px; "> Feels like: {{weather.feel}} °C </h4>
+            <h4 style="margin: 0px; font-size: 40px;"> {{weather.feel}} </h4>
         </div>
 
         <div class="middleCard">
-            <h1 style="margin-bottom: 50px;">Clothing</h1>
+            <h1 style="margin-bottom: 50px;"> {{clothes.title}} </h1>
             <h3> {{clothes.head}} </h3>
             <h3> {{clothes.accessories}} </h3>
             <h3> {{clothes.top}} </h3>
@@ -47,17 +57,16 @@
         </div>
 
         <div class="rightCard">
-            <h4 style="margin-bottom: 0px;"> Humidity </h4>
-            <h4 style="margin: 0px;"> {{weather.humidity}}% </h4>
+           
+            <h4> {{weather.humidity}} </h4>
 
-            <h4 style="margin-bottom: 0px;"> Air Pressure </h4>
-            <h4 style="margin: 0px;"> {{weather.pressure}} </h4>
+            <h4> {{weather.pressure}} </h4>
 
-            <h4 style="margin-bottom: 0px;"> Chance of Rain </h4>
-            <h4 style="margin: 0px;"> {{weather.pop}}% </h4>
+            <h4> {{weather.pop}} </h4>
 
-            <h4 style="margin-bottom: 0px;"> Wind Speed </h4>
-            <h4 style="margin: 0px;"> {{weather.wind_speed}} km/h</h4>
+            <h4 style="margin-bottom: 0px;"> {{weather.wind_speed}} </h4>
+
+            <h4 style="margin-top: 0px; text-transform: capitalize;"> {{weather.bfScaleDesc}} </h4>
         </div>
     </div>
 
