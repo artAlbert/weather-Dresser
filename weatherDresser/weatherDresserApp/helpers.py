@@ -11,7 +11,7 @@ def toKmph(wind_speed):
     return round(wind_speed*18/5)
 
 def bfScale(wind_speed):
-    """ bfScale(wind_speed) -> [] """
+    """ bfScale(wind_speed) -> List """
     """ Return Beaufort scale force, description for wind speeds given in kmph """
     if wind_speed < 1:
         return [0, "calm"]
