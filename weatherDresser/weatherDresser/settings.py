@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w1f_+$0^4$0keo*ejvff$*k1@hd_r%vgq^__db!(m10^toh*0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lit-peak-13583.herokuapp.com',
+ALLOWED_HOSTS = ['weather-dresser.herokuapp.com',
                  '127.0.0.1',
 ]
 
@@ -73,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'weatherDresser.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['https://lit-peak-13583.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://weather-dresser.herokuapp.com']
 
 
 # Database
