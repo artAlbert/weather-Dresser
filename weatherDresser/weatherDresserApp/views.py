@@ -52,24 +52,25 @@ def index(request):
     if request.method == "POST":
         searchForm = CityForm(request.method)       
         city = request.POST["city"]
-        # OpenWeatherMap's API omits JSON keys if the corresponding weather conditions aren't present. Trying to 
+        
         try:
-            # Get GPS coordinates for the queried city.
+            # Call to get GPS coordinates for the queried city.
             locationResponse = requests.get(locationURL.format(city=city, apiId=apiKey)).json()[0]
 
-            # Get current weather at coordinates. Convert to JSON.
+            # Call to get weather (current, hourly, daily forecasts) at coordinates. Convert to JSON.
             weatherResponse = requests.get(weatherURL.format(lat=locationResponse["lat"], lon=locationResponse["lon"], apiId=apiKey)).json()
             
-            # Split up JSON response into appropriate structures.
+            # Split up JSON response into appropriate structures. 
+            # Catch cases where API responds with an empty list.
             currentWeather = weatherResponse["current"]
             dailyWeather = weatherResponse["daily"]
             hourlyWeather = weatherResponse["hourly"]
             timezone = weatherResponse["timezone_offset"]
             
-            # Accept errors raised by API
+        # Catch errors raised by API
         except (IndexError, KeyError) as error:      
                 # Display an error message if the OWM API doesn't return anything.
-                messages.info(request, 'City not found. Please enter a correct city!')
+                messages.info(request, 'City not found! Please check your spelling and try again.')
             
         else:
             # Gather weather and location data for display.
@@ -84,6 +85,8 @@ def index(request):
             weather["wind_speed"] =  "Wind Speed: " + str(weatherDresserApp.helpers.toKmph(hourlyWeather[0]["wind_speed"])) + " km/h"
             weather["bfScaleDesc"] =  weatherDresserApp.helpers.bfScale(weatherDresserApp.helpers.toKmph(hourlyWeather[0]["wind_speed"]))[1]
             weather["icon"] =        "http://openweathermap.org/img/wn/" + currentWeather["weather"][0]["icon"] + "@2x.png"
+            weather["high"] =         "High: " + str(round(int(dailyWeather[0]["temp"]["max"]))) + "°C"
+            weather["low"] =          "Low: " + str(round(int(dailyWeather[0]["temp"]["min"]))) + "°C"
 
             # Convert unix dt to a friendlier format. 
             weatherDate = weatherDresserApp.helpers.unixToDate(currentWeather["dt"] + timezone)

@@ -1,7 +1,27 @@
+@media screen and (max-device-width: 768px) and (max-width: 768px) {
+    
+    body { 
+        background: url('/static/images/weatherBGmobile.jpg');
+        background-size: cover;
+        background: no-repeat;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .searchCity {
+        width: 80%;
+    }
+
+    
+
+
+
+}
+
+
 body {
     background: url('/static/images/weatherBG3.jpg');
     background-size: cover;
-
     color: white;
     font-family: 'Montserrat', sans-serif;
 
