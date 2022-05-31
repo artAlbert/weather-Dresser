@@ -25,13 +25,15 @@ She usually just asks me what the weather will be like and I tell her if she nee
 
 ## How It Works:
 	
-The user enters the city they're searching for into an input form and the application makes two api calls: one call to get the latitiude and longitude coordinates for the searched city, and one call to get weather data for those coordinates. I used OpenWeatherMap's API to translate the city name into coordinates and to source the weather data. 
+The user enters the city they're searching for into an input form and the application makes two api calls: one call to get the latitiude and longitude coordinates for the searched city, and one call to get weather data for those coordinates. I used OpenWeatherMap's API to translate the city name into coordinates and to source the weather data. If the input is blank, or the API returns nothing for the city input, an error message tells the user to check their input and try again. 
 
 Information like current conditions, sunrise/sunset times, temperatures throughout the day, humidity, uv, chance of rain, and wind speed is extracted from the response and displayed back to the user. 
 
 To help the user better understand some of these conditions I wrote helper functions that qualified the data: UVI numbers were translated into radiation levels and sunblock protection suggestions, temperatures were translated into humidex range levels, the dew point was translated into moisture comfort levels, and the wind speed was translated into effects on the Beaufort wind scale. 
 
 The clothing suggestions are based on preset temperature ranges. Current temperatures and weather conditions determine the recommended articles.
+
+## 
  
 
 ## Thoughts:
