@@ -21,7 +21,7 @@ She usually just asks me what the weather will be like and I tell her if she nee
 3. recommend appropriate styles of dress.
 
   It also had to be mobile responsive since that would be the primary method of viewing. We went through some mockups online and picked out a layout. I had creative control over the look of the desktop UI since that wasn't a priority.
-	
+
 
 ## How It Works:
 	
@@ -32,8 +32,6 @@ Information like current conditions, sunrise/sunset times, temperatures througho
 To help the user better understand some of these conditions I wrote helper functions that qualified the data: UVI numbers were translated into radiation levels and sunblock protection suggestions, temperatures were translated into humidex range levels, the dew point was translated into moisture comfort levels, and the wind speed was translated into effects on the Beaufort wind scale. 
 
 The clothing suggestions are based on preset temperature ranges. Current temperatures and weather conditions determine the recommended articles.
-
-## 
  
 
 ## Thoughts:
